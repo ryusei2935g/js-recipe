@@ -24,11 +24,13 @@ const f3 = function(n) {
 
 // 練習問題３
 // ① ２つの引数を受け取り、それらをかけ合わせた値を返す関数 multiply
+console.log = (6, 7)
 const multiply = function(x, y) {
   return x * y
 }
 
 // ② ２つの引数を受け取り、それらを足し合わせた結果を四捨五入した値を返す関数 plusRound
+console.log(2.3, 3.8)
 const plusRound = function(x, y) {
   return Math.round(x + y)
 }
