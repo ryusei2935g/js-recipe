@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebExpertコーステンプレート</title>
+  </head>
+  <body>
+    <input id="memo-input" />
+    <button id="add-button">保存</button>
+    <div id="memo-container"></div>
+    <script>
+      const MemoInput = document.getElementById("memo-input")
+      const AddButton = document.getElementById("add-button")
+      const MemoCon = document.getElementById("memo-container")
+      //AddButtonを押したら関数が動くようにしたい
+
+      let memos = []
+
+      // ローカルストレージのmemosキーからJSONを読み込む。
+      const memosJson = localStorage.memos
+      // JSON.parseで配列にして、memosを更新する。
+      memos = JSON.parse(memosJson)
+
+      if (localStorage.memos) {
+        // ローカルストレージのmemosキーからJSONを読み込む。
+        const memosJson = localStorage.memos
+        // JSON.parseで配列にして、memosを更新する。
+        memos = JSON.parse(memosJson)
+
+        // ページ読み込み時に、配列の内容をブラウザに反映する。
+        for (let i = 0; i < memos.length; i++) {
+          const div = document.createElement("div")
+          div.textContent = memos[i]
+          MemoCon.append(div)
+        }
+      }
+      AddButton.onclick = function() {
+        console.dir(MemoInput)
+        console.log(MemoInput.value)
+
+        memos.push(MemoInput.value)
+        console.log(memos)
+
+        // ローカルストレージのmemosキーにJSONにしたmemosを保存する。
+        localStorage.memos = JSON.stringify(memos)
+
+        MemoCon.innerHTML = ""
+
+        //for文を使ってmemosの配列の中身をMemoConに追加する
+
+        for (let i = 0; i < memos.length; i++) {
+          const text = memos[i]
+          const New = document.createElement("div")
+          New.textContent = text
+          MemoCon.append(New)
+        }
+
+        //divタグを作る
+
+        //作ったdivタグのtextContentに入力した値を代入する
+        //<div>MemoInput.value</div>ができるようになる
+
+        //MemoConに作ったdivタグを追加する
+        //入れ物.append(入れたいもの)
+      }
+    </script>
+  </body>
+</html>

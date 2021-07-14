@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebExpertコーステンプレート</title>
+  </head>
+  <body>
+    <input id="memo-input" />
+    <button id="add-button">保存</button>
+    <div id="memo-container"></div>
+    <script>
+      const MemoInput = document.getElementById("memo-input")
+      const AddButton = document.getElementById("add-button")
+      const MemoCon = document.getElementById("memo-container")
+      //AddButtonを押したら関数が動くようにしたい
+
+      AddButton.onclick = function() {
+        console.dir(MemoInput)
+        console.log(MemoInput.value)
+
+        //divタグを作る
+        const New = document.createElement("div")
+
+        //作ったdivタグのtextContentに入力した値を代入する
+        //<div>MemoInput.value</div>ができるようになる
+        New.textContent = MemoInput.value
+
+        //MemoConに作ったdivタグを追加する
+        //入れ物.append(入れたいもの)
+        MemoCon.append(New)
+        console.log(New)
+      }
+    </script>
+  </body>
+</html>
