@@ -1,10 +1,10 @@
 const genkiFunction = function(number) {
-  for (let n = 1; n <= 100; n++) {
-    String(n)
-    if (n === "3") {
-      console.log(`${n}大好き`)
+  for (let n = 1; n <= number; n++) {
+    const strNum = String(n)
+    if (strNum.includes("3")) {
+      console.log(`${strNum}大好き`)
     } else {
-      console.log(n)
+      console.log(strNum)
     }
   }
 }
